@@ -93,7 +93,7 @@ impl Bibtex {
     }
 
     /// Get bibliographies entry with variables expanded.
-    pub fn bibliographies(&self) -> &Vec<Bibliography> {
+    pub fn bibliographies(&self) -> &[Bibliography] {
         &self.bibliographies
     }
 
