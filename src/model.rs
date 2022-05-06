@@ -54,9 +54,8 @@ impl Bibtex {
                 Entry::Bibliography(entry_t, citation_key, tags) => {
                     let mut new_tags = HashMap::new();
                     for tag in tags {
-                        let key = tag.key.to_lowercase();
                         new_tags.insert(
-                            key,
+                            tag.key,
                             Self::expand_str_abbreviations(tag.value, &bibtex)?,
                         );
                     }
@@ -237,6 +236,6 @@ pub struct KeyValue {
 
 impl KeyValue {
     pub fn new(key: String, value: Vec<StringValueType>) -> KeyValue {
-        Self { key, value }
+        Self { key: key.to_lowercase(), value }
     }
 }
